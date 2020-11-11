@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.core.mapper.UsersMapper">
+    <resultMap id="BaseResultMap" type="cn.core.entity.Users">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="username" jdbcType="VARCHAR" property="username" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+        <result column="head" jdbcType="VARCHAR" property="head" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="phone" jdbcType="INTEGER" property="phone" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="create_time" jdbcType="DATE" property="createTime" />
+        <result column="birthday" jdbcType="DATE" property="birthday" />
+        <result column="personal_signature" jdbcType="VARCHAR" property="personalSignature" />
+        <result column="states" jdbcType="INTEGER" property="states" />
+        <result column="test1" jdbcType="VARCHAR" property="test1" />
+        <result column="test2" jdbcType="VARCHAR" property="test2" />
+        <result column="test3" jdbcType="VARCHAR" property="test3" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,username,password,nickname,head,gender,phone,email,
+        create_time,birthday,personal_signature,states,test1,test2,test3
+    </sql>
+
+    <insert id="insert" parameterType="cn.core.entity.Users" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users(id,username,password,nickname,head,gender,phone,email,
+        create_time,birthday,personal_signature,states,test1,test2,test3)
+        values(#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},
+        #{head,jdbcType=VARCHAR},#{gender,jdbcType=INTEGER},#{phone,jdbcType=INTEGER},#{email,jdbcType=VARCHAR},
+        #{createTime,jdbcType=DATE},#{birthday,jdbcType=DATE},#{personalSignature,jdbcType=VARCHAR},#{states,jdbcType=INTEGER},
+        #{test1,jdbcType=VARCHAR},#{test2,jdbcType=VARCHAR},#{test3,jdbcType=VARCHAR})
+
+    </insert>
+    <select id="selectListAll" resultMap="BaseResultMap">
+        select id,username,password,states
+        from users
+    </select>
+    <select id="selectByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select id,password,states from users
+        where username=#{username,jdbcType=VARCHAR}
+    </select>
+</mapper>

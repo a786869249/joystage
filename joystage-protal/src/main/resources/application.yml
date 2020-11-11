@@ -1,0 +1,27 @@
+server:
+  port: 8088
+
+spring:
+  thymeleaf:
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    prefix: classpath:/templates/
+  application:
+    name: joystage-protal
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/joy_stage?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+
+
+#mybatis:
+#  type-aliases-package: cn.core.entity
+#  mapper-locations: classpath:mapper/*.xml
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.core.entity
+
