@@ -1,13 +1,11 @@
 package cn.core.common.utils;
 
-
 import cn.core.common.entity.JsonResult;
 import cn.core.common.enums.ResultCode;
 
 /**
- * @Author: Hutengfei
- * @Description:
- * @Date Create in 2019/7/22 19:52
+ * @author shanjianfei
+ * @create 2020-10-15 19:26
  */
 public class ResultTool {
     public static JsonResult success() {

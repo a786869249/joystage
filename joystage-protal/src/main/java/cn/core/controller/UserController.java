@@ -37,7 +37,7 @@ public class UserController {
     @Autowired
     private UsersRoleMapper usersRoleMapper;
 
-    @PostMapping("/user/insert")
+    @PostMapping("/user/register")
     public void insert(Users users) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String password = bCryptPasswordEncoder.encode(users.getPassword());
@@ -56,7 +56,6 @@ public class UserController {
         usersRole.setRoleId(2);
         usersRole.setUserId(user.getId());
         usersRoleMapper.insert(usersRole);
-
     }
 
     @GetMapping({"/root"})
@@ -106,10 +105,5 @@ public class UserController {
         return "x";
     }
 
-//    @PostMapping("/loginT")
-//    public JsonResult login(String username,String password){
-//        userDetailsService.loadUserByUsername(username);
-//        return ResultTool.success(username);
-//    }
 
 }

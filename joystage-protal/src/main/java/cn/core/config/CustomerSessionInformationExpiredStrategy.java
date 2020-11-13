@@ -23,7 +23,7 @@ public class CustomerSessionInformationExpiredStrategy implements SessionInforma
     public void onExpiredSessionDetected(SessionInformationExpiredEvent event) throws IOException, ServletException {
         JsonResult result = ResultTool.fail(ResultCode.USER_ACCOUNT_USE_BY_OTHERS);
         HttpServletResponse httpServletResponse = event.getResponse();
-        httpServletResponse.setContentType("text/json;charset=utf-8");
+        httpServletResponse.setContentType("application/json;charset=utf-8");
         httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }
 }

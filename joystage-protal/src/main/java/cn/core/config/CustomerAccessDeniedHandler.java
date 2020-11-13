@@ -16,13 +16,15 @@ import java.io.IOException;
 /**
  * @author shanjianfei
  * @create 2020-11-05 19:01
+ *
+ * 权限处理
  */
 @Component
 public class CustomerAccessDeniedHandler implements AccessDeniedHandler{
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
         JsonResult result = ResultTool.fail(ResultCode.NO_PERMISSION);
-        httpServletResponse.setContentType("text/json;charset=utf-8");
+        httpServletResponse.setContentType("application/json;charset=utf-8");
         httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }
 }

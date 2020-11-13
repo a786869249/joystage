@@ -47,7 +47,7 @@ public class CustomerAuthenticationFailureHandler implements AuthenticationFailu
             result = ResultTool.fail(ResultCode.COMMON_FAIL);
         }
         //处理编码方式，防止中文乱码
-        response.setContentType("text/json;charset=utf-8");
+        response.setContentType("application/json;charset=utf-8");
         //加到HttpServletResponse中返回给前端
         response.getWriter().write(JSON.toJSONString(result));
     }

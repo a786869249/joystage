@@ -24,7 +24,7 @@ public class CustomerAuthenticationEntryPoint implements AuthenticationEntryPoin
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         //返回json数据  用户未登录  2001
         JsonResult result = ResultTool.fail(ResultCode.USER_NOT_LOGIN);
-        response.setContentType("text/json;charset=utf-8");
+        response.setContentType("application/json;charset=utf-8");
         response.getWriter().write(JSON.toJSONString(result));
     }
 }

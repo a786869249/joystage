@@ -21,7 +21,8 @@ public class CustomerLogoutSuccessHandler implements LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         JsonResult result = ResultTool.success();
-        response.setContentType("text/json;charset=utf-8");
+        response.setContentType("application/json;charset=utf-8");
+        System.out.println("-------登出--------");
         response.getWriter().write(JSON.toJSONString(result));
     }
 }
